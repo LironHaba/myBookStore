@@ -9,11 +9,18 @@ app.get('/', function(req, res){
 })
 
 app.get('/getBookList', function(req, res){
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-requested-With, Content-Type, Accept");
+	app.set('json spaces', 4);
+	res.set("Content-Type", "appliction/json");
 	res.json(books.getBookList())
 })
 
 app.get('/getBookNameByID/:bookID', function(req, res){
-
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-requested-With, Content-Type, Accept");
+	app.set('json spaces', 4);
+	res.set("Content-Type", "appliction/json");
 	var id = req.params.bookID;
 	var bookName = books.getBookNameByID(id);
 
@@ -22,9 +29,11 @@ app.get('/getBookNameByID/:bookID', function(req, res){
 })
 
 app.get('/getBookListByMonth/:bookMonth', function(req, res){
-
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-requested-With, Content-Type, Accept");
+	app.set('json spaces', 4);
+	res.set("Content-Type", "appliction/json");
 	var bookMonth = req.params.bookMonth;
-	console.log(bookMonth);
 	var booksOfTheMonth = books.getBookListByMonth(bookMonth);
 
 	res.json(booksOfTheMonth);
